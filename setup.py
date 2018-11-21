@@ -1,8 +1,8 @@
 # this restructured text docstring is displayed on https://pypi.python.org/pypi/notifications-python-client/
 """
-Python API client for GOV.UK Notify - see https://www.notifications.service.gov.uk for more information.
+Python API client for Notify - see https://notify.gov.au for more information.
 
-For usage and documentation see https://docs.notifications.service.gov.uk/python.html
+For usage and documentation see https://docs.notify.gov.au
 """
 import re
 import ast
@@ -38,7 +38,7 @@ setup(
     url='https://github.com/alphagov/notifications-python-client',
     license='MIT',
     author='Government Digital Service',
-    description='Python API client for GOV.UK Notify.',
+    description='Python API client for Notify.',
     long_description=__doc__,
     classifiers=[
         'Intended Audience :: Developers',
@@ -49,7 +49,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
     ],
-    keywords='gds govuk notify',
+    keywords='dta govau notify',
 
     packages=find_packages(),
     include_package_data=True,

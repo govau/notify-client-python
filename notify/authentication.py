@@ -24,7 +24,7 @@ __bound__ = 30
 
 def create_jwt_token(secret, client_id):
     """
-    Create JWT token for GOV.UK Notify
+    Create JWT token for Notify
 
     Tokens have standard header:
     {

@@ -28,7 +28,7 @@ class BaseAPIClient(object):
         """
         Initialise the client
         Error if either of base_url or secret missing
-        :param base_url - base URL of GOV.UK Notify API:
+        :param base_url - base URL of Notify API:
         :param secret - application secret - used to sign the request:
         :return:
         """

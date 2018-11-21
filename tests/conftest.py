@@ -38,5 +38,4 @@ def base_client():
 
 @pytest.yield_fixture
 def notifications_client():
-    yield notify.Client(base_url=TEST_HOST,
-                                 api_key=COMBINED_API_KEY)
+    yield notify.Client(base_url=TEST_HOST, api_key=COMBINED_API_KEY)

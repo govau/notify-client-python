@@ -27,7 +27,7 @@ def test_passes_through_service_id_and_key(rmock, client):
         rmock.request("GET", "/", status_code=204)
         client.request("GET", '/')
     mock_create_token.assert_called_once_with(API_KEY_ID, SERVICE_ID)
-    assert client.base_url == 'https://api.notifications.service.gov.uk'
+    assert client.base_url == 'https://rest-api.notify.gov.au'
 
 
 def test_can_set_base_url():
