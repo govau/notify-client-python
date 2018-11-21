@@ -12,9 +12,9 @@ import jwt
 import pytest
 from freezegun import freeze_time
 
-from notifications_python_client.authentication import (
+from notify.authentication import (
     create_jwt_token, decode_jwt_token, get_token_issuer)
-from notifications_python_client.errors import (
+from notify.errors import (
     TokenExpiredError, TokenDecodeError, TokenIssuerError, TokenIssuedAtError)
 
 

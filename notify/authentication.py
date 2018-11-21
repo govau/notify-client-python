@@ -10,7 +10,7 @@ import time
 
 import jwt
 
-from notifications_python_client.errors import (
+from notify.errors import (
     TokenDecodeError,
     TokenExpiredError,
     TokenIssuerError,

@@ -22,7 +22,7 @@ import sys
 from docopt import docopt
 from pprint import pprint
 
-from notifications_python_client.notifications import NotificationsAPIClient
+import notify
 
 
 def create_notification(notifications_client, **kwargs):
@@ -147,7 +147,7 @@ def get_template_version(notifications_client):
 if __name__ == "__main__":  # noqa
     arguments = docopt(__doc__)
 
-    client = NotificationsAPIClient(
+    client = notify.Client(
         base_url=arguments['<base_url>'],
         api_key=arguments['<secret>']
     )

@@ -10,8 +10,8 @@ import requests
 import mock
 
 import pytest
-from notifications_python_client.errors import HTTPError, InvalidResponse
-from notifications_python_client.base import BaseAPIClient
+from notify.errors import HTTPError, InvalidResponse
+from notify.base import BaseAPIClient
 from tests.conftest import API_KEY_ID, SERVICE_ID, COMBINED_API_KEY
 
 
@@ -23,7 +23,7 @@ from tests.conftest import API_KEY_ID, SERVICE_ID, COMBINED_API_KEY
     'positional api key'
 ])
 def test_passes_through_service_id_and_key(rmock, client):
-    with mock.patch('notifications_python_client.base.create_jwt_token') as mock_create_token:
+    with mock.patch('notify.base.create_jwt_token') as mock_create_token:
         rmock.request("GET", "/", status_code=204)
         client.request("GET", '/')
     mock_create_token.assert_called_once_with(API_KEY_ID, SERVICE_ID)

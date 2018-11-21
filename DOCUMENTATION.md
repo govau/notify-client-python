@@ -19,9 +19,9 @@ Refer to the [client changelog](https://github.com/alphagov/notifications-python
 Add this code to your application:
 
 ```python
-from notifications_python_client.notifications import NotificationsAPIClient
+import notify
 
-notifications_client = NotificationsAPIClient(api_key)
+client = notify.Client(api_key)
 ```
 
 To get an API key, [sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/) and go to the __API integration__ page. You can find more information in the [API keys](#api-keys) section of this documentation.
@@ -216,7 +216,7 @@ The document you upload must be a PDF file smaller than 2MB.
 Pass the file object as a value into the personalisation argument. For example:
 
 ```python
-from notifications_python_client import prepare_upload
+from notify import prepare_upload
 
 with open('file.pdf', 'rb') as f:
     ...

@@ -9,7 +9,7 @@ from mock import Mock
 standard_library.install_aliases()
 from tests.conftest import TEST_HOST
 
-from notifications_python_client import prepare_upload
+from notify import prepare_upload
 
 
 def test_get_notification_by_id(notifications_client, rmock):

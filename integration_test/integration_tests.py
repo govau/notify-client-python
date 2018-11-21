@@ -15,7 +15,7 @@ from integration_test.schemas.v2.template_schemas import get_template_by_id_resp
 from integration_test.schemas.v2.templates_schemas import get_all_template_response
 from integration_test.enums import SMS_TYPE, EMAIL_TYPE, LETTER_TYPE
 
-from notifications_python_client.notifications import NotificationsAPIClient
+import notify
 
 
 def validate(json_to_validate, schema):
@@ -95,7 +95,7 @@ def get_notification_by_id(python_client, id, notification_type):
 
 
 def get_received_text_messages():
-    client = NotificationsAPIClient(
+    client = notify.Client(
         base_url=os.environ['NOTIFY_API_URL'],
         api_key=os.environ['INBOUND_SMS_QUERY_KEY']
     )
@@ -168,11 +168,11 @@ def get_all_templates_for_type(python_client, template_type):
 
 
 def test_integration():
-    client = NotificationsAPIClient(
+    client = notify.Client(
         base_url=os.environ['NOTIFY_API_URL'],
         api_key=os.environ['API_KEY']
     )
-    client_using_whitelist_key = NotificationsAPIClient(
+    client_using_whitelist_key = notify.Client(
         base_url=os.environ['NOTIFY_API_URL'],
         api_key=os.environ['API_SENDING_KEY']
     )
