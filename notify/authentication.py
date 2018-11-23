@@ -10,7 +10,7 @@ import time
 
 import jwt
 
-from notifications_python_client.errors import (
+from notify.errors import (
     TokenDecodeError,
     TokenExpiredError,
     TokenIssuerError,
@@ -24,7 +24,7 @@ __bound__ = 30
 
 def create_jwt_token(secret, client_id):
     """
-    Create JWT token for GOV.UK Notify
+    Create JWT token for Notify
 
     Tokens have standard header:
     {

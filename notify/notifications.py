@@ -8,7 +8,7 @@ import base64
 import logging
 import re
 
-from notifications_python_client.base import BaseAPIClient
+from notify.base import BaseAPIClient
 
 logger = logging.getLogger(__name__)
 

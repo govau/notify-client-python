@@ -1,7 +1,7 @@
 import io
 import pytest
 
-from notifications_python_client import prepare_upload
+from notify import prepare_upload
 
 
 def test_prepare_upload_raises_an_error_for_large_files():

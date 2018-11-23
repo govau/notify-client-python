@@ -11,9 +11,9 @@ import json
 from monotonic import monotonic
 import requests
 
-from notifications_python_client import __version__
-from notifications_python_client.errors import HTTPError, InvalidResponse
-from notifications_python_client.authentication import create_jwt_token
+from notify import __version__
+from notify.errors import HTTPError, InvalidResponse
+from notify.authentication import create_jwt_token
 
 
 logger = logging.getLogger(__name__)
@@ -23,12 +23,12 @@ class BaseAPIClient(object):
     def __init__(
             self,
             api_key,
-            base_url='https://api.notifications.service.gov.uk'
+            base_url='https://rest-api.notify.gov.au'
     ):
         """
         Initialise the client
         Error if either of base_url or secret missing
-        :param base_url - base URL of GOV.UK Notify API:
+        :param base_url - base URL of Notify API:
         :param secret - application secret - used to sign the request:
         :return:
         """
