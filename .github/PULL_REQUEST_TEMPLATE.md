@@ -11,6 +11,7 @@
 - [ ] I’ve update the documentation in
   - [ ] `DOCUMENTATION.md`
   - [ ] `CHANGELOG.md`
+  - [ ] `Notify docs: https://github.com/govau/notify/blob/master/docs/src/code-examples/setup-install/python.mdx`
 - [ ] I’ve bumped the version number in
   - [ ] `notifications_python_client/__init__.py`
   - [ ] `notifications_python_client/test_base_api_client.py`, function `test_user_agent_is_set`
