@@ -69,3 +69,11 @@ Use this to test the client without having to create an application.
 ```
 
 This will use the API referred to in the base_api_url argument to send a text message.
+
+## Publishing
+
+To publish a new version, please ensure you:
+- Create a new version and add notes in [CHANGELOG.md](CHANGELOG.md)
+- Create an annotated Git tag and push to Github. 
+Example: `git tag -a v5.2.0 -m "Message goes here" && git push origin v5.2.0`
+- Update the [Python Notify client documentation](https://github.com/govau/notify/blob/master/docs/src/code-examples/setup-install/python.mdx)
