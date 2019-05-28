@@ -1,3 +1,6 @@
+## 5.2.1
+* Remove error log in base class.
+
 ## 5.2.0
 
 * Add a document size check to `prepare_upload`. Will raise `ValueError` when trying to upload a document larger than 2MB.
