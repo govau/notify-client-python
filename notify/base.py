@@ -92,14 +92,6 @@ class BaseAPIClient(object):
             response.raise_for_status()
         except requests.RequestException as e:
             api_error = HTTPError.create(e)
-            logger.error(
-                "API {} request on {} failed with {} '{}'".format(
-                    method,
-                    url,
-                    api_error.status_code,
-                    api_error.message
-                )
-            )
             raise api_error
         finally:
             elapsed_time = monotonic() - start_time
