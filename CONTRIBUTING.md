@@ -7,6 +7,7 @@ Pull requests welcome.
 This is a Python codebase, written to support Python 2 and 3.
 
 If you’re using OS X and don’t have Python installed, run this command:
+
 ```shell
     brew install python3
 ```
@@ -20,10 +21,11 @@ We recommend using [VirtualEnvWrapper](http://virtualenvwrapper.readthedocs.org/
 Setting up a Virtualenv for python3
 
 ```shell
-    mkvirtualenv -p /usr/local/bin/python3 notifications-python-client
+    mkvirtualenv -p /usr/local/bin/python3 notify-client-python
 ```
 
 Install the dependencies
+
 ```python
     python setup.py develop
 ```
@@ -58,7 +60,7 @@ INBOUND_SMS_QUERY_KEY "API_test_key to get received text messages - leave blank 
 
 The `./scripts/run_integration_tests.py` script will run the integration tests.
 The integration tests will test the contract of the response to all the api calls,
-ensuring the latest version of notifications-api do not break the contract of the notifications-python-client.
+ensuring the latest version of notify-api do not break the contract of the notify-client-python.
 
 ## Command line tool
 
@@ -73,7 +75,8 @@ This will use the API referred to in the base_api_url argument to send a text me
 ## Publishing
 
 To publish a new version, please ensure you:
+
 - Create a new version and add notes in [CHANGELOG.md](CHANGELOG.md)
-- Create an annotated Git tag and push to Github. 
-Example: `git tag -a v5.2.0 -m "Message goes here" && git push origin v5.2.0`
+- Create an annotated Git tag and push to Github.
+  Example: `git tag -a v5.2.1 -m "Remove error logging from BaseAPIClient" && git push origin v5.2.1`
 - Update the [Python Notify client documentation](https://github.com/govau/notify/blob/master/docs/src/code-examples/setup-install/python.mdx)

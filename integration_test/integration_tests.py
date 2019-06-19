@@ -219,7 +219,7 @@ def test_integration():
     if (os.environ['INBOUND_SMS_QUERY_KEY']):
         get_received_text_messages()
 
-    print("notifications-python-client integration tests are successful")
+    print("notify-client-python integration tests are successful")
 
 
 if __name__ == "__main__":

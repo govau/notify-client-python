@@ -20,7 +20,7 @@ This documentation is for developers interested in using this Python client to i
 ## Installation
 
 ```shell
-pip install notifications-python-client
+pip install git+https://github.com/govau/notify-client-python.git@v5.2.2
 ```
 
 ## Getting started

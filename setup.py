@@ -1,4 +1,3 @@
-# this restructured text docstring is displayed on https://pypi.python.org/pypi/notifications-python-client/
 """
 Python API client for Notify - see https://notify.gov.au for more information.
 
@@ -33,11 +32,11 @@ class IntegrationTestCommand(TestCommand):
 
 
 setup(
-    name='notifications-python-client',
+    name='notify-client-python',
     version=version,
-    url='https://github.com/alphagov/notifications-python-client',
+    url='https://github.com/govau/notify-client-python',
     license='MIT',
-    author='Government Digital Service',
+    author='Digital Transformation Agency',
     description='Python API client for Notify.',
     long_description=__doc__,
     classifiers=[

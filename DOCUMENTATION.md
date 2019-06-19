@@ -12,7 +12,7 @@ Run the following code in the command line:
 pip install -e git+https://github.com/govau/notify-client-python.git@1.0.0#egg=notify-client-python
 ```
 
-Refer to the [client changelog](https://github.com/govau/notify-python-client/blob/master/CHANGELOG.md) for the client version number and the latest updates.
+Refer to the [client changelog](https://github.com/govau/notify-client-python/blob/master/CHANGELOG.md) for the client version number and the latest updates.
 
 ## Create a new instance of the client
 

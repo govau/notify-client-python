@@ -15,7 +15,7 @@ standard_library.install_aliases()
 #
 # -- http://semver.org/
 
-__version__ = '5.2.1'
+__version__ = '5.2.2'
 
 from notify.errors import REQUEST_ERROR_STATUS_CODE, REQUEST_ERROR_MESSAGE  # noqa
 

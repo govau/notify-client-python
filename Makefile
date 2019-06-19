@@ -3,9 +3,9 @@ SHELL := /bin/bash
 
 PIP_ACCEL_CACHE ?= ${CURDIR}/.cache/pip-accel
 
-DOCKER_BUILDER_IMAGE_NAME = govuk/notify-python-client-runner
+DOCKER_BUILDER_IMAGE_NAME = govuk/notify-client-python-runner
 
-BUILD_TAG ?= notifications-python-client-manual
+BUILD_TAG ?= notify-client-python-manual
 
 DOCKER_CONTAINER_PREFIX = ${USER}-${BUILD_TAG}
 
