@@ -94,6 +94,16 @@ sms_sender_id='8e222534-7f05-4972-86e3-17c5d9f894e2' # optional UUID string
 
 You can leave out this argument if your service only has one text message sender, or if you want to use the default sender.
 
+#### status_callback_url (optional)
+
+This is an HTTPS URL of the server that you would like delivery status updates to be sent to.
+
+This argument is optional. If you do not provide this and you have set up a delivery status callback URL on your service through Notify.gov.au, then that will be used.
+
+#### status_callback_bearer_token (optional)
+
+This is the bearer token that Notify.gov.au will use when making a request to your server so that you can authenticate requests. This argument is required if you provide `status_callback_url`.
+
 ### Response
 
 If the request to the client is successful, the client returns a `dict`:
@@ -194,6 +204,28 @@ email_reply_to_id='8e222534-7f05-4972-86e3-17c5d9f894e2' # optional UUID string
 ```
 
 You can leave out this argument if your service only has one email reply-to address, or you want to use the default email address.
+
+#### status_callback_url (optional)
+
+This is an HTTPS URL of the server that you would like delivery status updates to be sent to.
+
+For example:
+
+```python
+status_callback_url='https://example.com/callback' # optional
+```
+
+This argument is optional. If you do not provide this and you have set up a delivery status callback URL on your service through Notify.gov.au, then that will be used.
+
+#### status_callback_bearer_token (optional)
+
+This is the bearer token that Notify.gov.au will use when making a request to your server so that you can authenticate requests. This argument is required if you provide `status_callback_url`.
+
+For example:
+
+```python
+status_callback_bearer_token='1234567890' # optional
+```
 
 ## Send a document by email
 

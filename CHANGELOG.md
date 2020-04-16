@@ -1,3 +1,7 @@
+## 5.3.0
+
+- Add delivery status callback options to `send_email_notification` and `send_sms_notification` calls
+
 ## 5.2.2
 
 - Change installation instructions and

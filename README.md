@@ -52,7 +52,9 @@ response = notifications_client.send_sms_notification(
     template_id='f33517ff-2a88-4f6e-b855-c550268ce08a',
     personalisation=None,
     reference=None
-    sms_sender_id=None
+    sms_sender_id=None,
+    status_callback_url=None,
+    status_callback_bearer_token=None
 )
 ```
 
@@ -133,6 +135,16 @@ Optional. Specifies the identifier of the sms sender to set for the notification
 
 If you omit this argument your default sms sender will be set for the notification.
 
+##### `status_callback_url`
+
+An optional HTTPS URL for delivery status updates to be sent to.
+
+If you do not provide this and you have set up a delivery status callback URL on your service through Notify.gov.au, then that will be used.
+
+##### `status_callback_bearer_token`
+
+The bearer token that will be used for authentication to the delivery status callback URL. This must be provided if the status callback URL is provided.
+
 </details>
 
 ### Email
@@ -150,7 +162,9 @@ response = notifications_client.send_email_notification(
     template_id='f33517ff-2a88-4f6e-b855-c550268ce08a'
     personalisation=None,
     reference=None,
-    email_reply_to_id=None
+    email_reply_to_id=None,
+    status_callback_url=None,
+    status_callback_bearer_token=None
 )
 ```
 
@@ -229,6 +243,16 @@ personalisation={
 An optional identifier that you can get from the service email_reply_to ids found in the service settings / manage email reply to addresses page.
 
 You can omit this argument if you want to use the default service email reply to otherwise add the id from the list of email_reply_to ids associated with the service.
+
+##### `status_callback_url`
+
+An optional HTTPS URL for delivery status updates to be sent to.
+
+If you do not provide this and you have set up a delivery status callback URL on your service through Notify.gov.au, then that will be used.
+
+##### `status_callback_bearer_token`
+
+The bearer token that will be used for authentication to the delivery status callback URL. This must be provided if the status callback URL is provided.
 
 </details>
 

@@ -23,7 +23,11 @@ def validate(json_to_validate, schema):
     validator.validate(json_to_validate, schema)
 
 
-def send_sms_notification_test_response(python_client, sender_id=None):
+def send_sms_notification_test_response(python_client,
+                                        sender_id=None,
+                                        status_callback_url=None,
+                                        status_callback_bearer_token=None
+                                        ):
     mobile_number = os.environ['FUNCTIONAL_TEST_NUMBER']
     template_id = os.environ['SMS_TEMPLATE_ID']
     unique_name = str(uuid.uuid4())
@@ -32,13 +36,20 @@ def send_sms_notification_test_response(python_client, sender_id=None):
     response = python_client.send_sms_notification(phone_number=mobile_number,
                                                    template_id=template_id,
                                                    personalisation=personalisation,
-                                                   sms_sender_id=sms_sender_id)
+                                                   sms_sender_id=sms_sender_id,
+                                                   status_callback_url=status_callback_url,
+                                                   status_callback_bearer_token=status_callback_bearer_token
+                                                   )
     validate(response, post_sms_response)
     assert unique_name in response['content']['body']  # check placeholders are replaced
     return response['id']
 
 
-def send_email_notification_test_response(python_client, reply_to=None):
+def send_email_notification_test_response(python_client,
+                                          reply_to=None,
+                                          status_callback_url=None,
+                                          status_callback_bearer_token=None
+                                          ):
     email_address = os.environ['FUNCTIONAL_TEST_EMAIL']
     template_id = os.environ['EMAIL_TEMPLATE_ID']
     email_reply_to_id = reply_to
@@ -47,7 +58,10 @@ def send_email_notification_test_response(python_client, reply_to=None):
     response = python_client.send_email_notification(email_address=email_address,
                                                      template_id=template_id,
                                                      personalisation=personalisation,
-                                                     email_reply_to_id=email_reply_to_id)
+                                                     email_reply_to_id=email_reply_to_id,
+                                                     status_callback_url=status_callback_url,
+                                                     status_callback_bearer_token=status_callback_bearer_token
+                                                     )
     validate(response, post_email_response)
     assert unique_name in response['content']['body']  # check placeholders are replaced
     return response['id']

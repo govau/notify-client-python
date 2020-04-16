@@ -20,7 +20,9 @@ class NotificationsAPIClient(BaseAPIClient):
         template_id,
         personalisation=None,
         reference=None,
-        sms_sender_id=None
+        sms_sender_id=None,
+        status_callback_url=None,
+        status_callback_bearer_token=None
     ):
         notification = {
             "phone_number": phone_number,
@@ -32,6 +34,10 @@ class NotificationsAPIClient(BaseAPIClient):
             notification.update({'reference': reference})
         if sms_sender_id:
             notification.update({'sms_sender_id': sms_sender_id})
+        if status_callback_url:
+            notification.update({'status_callback_url': status_callback_url})
+        if status_callback_bearer_token:
+            notification.update({'status_callback_bearer_token': status_callback_bearer_token})
         return self.post(
             '/v2/notifications/sms',
             data=notification)
@@ -42,7 +48,9 @@ class NotificationsAPIClient(BaseAPIClient):
         template_id,
         personalisation=None,
         reference=None,
-        email_reply_to_id=None
+        email_reply_to_id=None,
+        status_callback_url=None,
+        status_callback_bearer_token=None
     ):
         notification = {
             "email_address": email_address,
@@ -54,6 +62,10 @@ class NotificationsAPIClient(BaseAPIClient):
             notification.update({'reference': reference})
         if email_reply_to_id:
             notification.update({'email_reply_to_id': email_reply_to_id})
+        if status_callback_url:
+            notification.update({'status_callback_url': status_callback_url})
+        if status_callback_bearer_token:
+            notification.update({'status_callback_bearer_token': status_callback_bearer_token})
         return self.post(
             '/v2/notifications/email',
             data=notification)

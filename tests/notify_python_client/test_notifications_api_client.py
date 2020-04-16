@@ -190,6 +190,29 @@ def test_create_sms_notification_with_sms_sender_id(notifications_client, rmock)
     }
 
 
+def test_create_sms_notification_with_status_callback_url_and_bearer_token(notifications_client, rmock):
+    endpoint = "{0}/v2/notifications/sms".format(TEST_HOST)
+    rmock.request(
+        "POST",
+        endpoint,
+        json={"status": "success"},
+        status_code=200)
+
+    notifications_client.send_sms_notification(
+        phone_number="07700 900000",
+        template_id="456",
+        status_callback_url="https://example.com/callback",
+        status_callback_bearer_token="1234567890"
+    )
+
+    assert rmock.last_request.json() == {
+        'template_id': '456',
+        'phone_number': '07700 900000',
+        'status_callback_url': 'https://example.com/callback',
+        'status_callback_bearer_token': '1234567890'
+    }
+
+
 def test_create_email_notification(notifications_client, rmock):
     endpoint = "{0}/v2/notifications/email".format(TEST_HOST)
     rmock.request(
@@ -236,6 +259,29 @@ def test_create_email_notification_with_personalisation(notifications_client, rm
 
     assert rmock.last_request.json() == {
         'template_id': '456', 'email_address': 'to@example.com', 'personalisation': {'name': 'chris'}
+    }
+
+
+def test_create_email_notification_with_status_callback_url_and_bearer_token(notifications_client, rmock):
+    endpoint = "{0}/v2/notifications/email".format(TEST_HOST)
+    rmock.request(
+        "POST",
+        endpoint,
+        json={"status": "success"},
+        status_code=200)
+
+    notifications_client.send_email_notification(
+        email_address="to@example.com",
+        template_id="456",
+        status_callback_url="https://example.com/callback",
+        status_callback_bearer_token="1234567890"
+    )
+
+    assert rmock.last_request.json() == {
+        'template_id': '456',
+        'email_address': 'to@example.com',
+        'status_callback_url': 'https://example.com/callback',
+        'status_callback_bearer_token': '1234567890'
     }
 
 
