@@ -1,5 +1,6 @@
 import os
 import uuid
+import pytest
 
 from jsonschema import Draft4Validator
 
@@ -67,6 +68,7 @@ def send_email_notification_test_response(python_client,
     return response['id']
 
 
+@pytest.mark.skip(reason="we do not support sending letters")
 def send_letter_notification_test_response(python_client):
     template_id = os.environ['LETTER_TEMPLATE_ID']
     unique_name = str(uuid.uuid4())
@@ -207,15 +209,15 @@ def test_integration():
     sms_with_sender_id = send_sms_notification_test_response(client_using_whitelist_key, sms_sender_id)
     email_id = send_email_notification_test_response(client)
     email_with_reply_id = send_email_notification_test_response(client, email_reply_to_id)
-    letter_id = send_letter_notification_test_response(client)
-    precompiled_letter_id = send_precompiled_letter_notification_test_response(client)
+    # letter_id = send_letter_notification_test_response(client)
+    # precompiled_letter_id = send_precompiled_letter_notification_test_response(client)
 
     get_notification_by_id(client, sms_id, SMS_TYPE)
     get_notification_by_id(client, sms_with_sender_id, SMS_TYPE)
     get_notification_by_id(client, email_id, EMAIL_TYPE)
     get_notification_by_id(client, email_with_reply_id, EMAIL_TYPE)
-    get_notification_by_id(client, letter_id, LETTER_TYPE)
-    get_notification_by_id(client, precompiled_letter_id, LETTER_TYPE)
+    # get_notification_by_id(client, letter_id, LETTER_TYPE)
+    # get_notification_by_id(client, precompiled_letter_id, LETTER_TYPE)
 
     get_all_notifications(client)
 
@@ -230,8 +232,9 @@ def test_integration():
     get_all_templates_for_type(client, EMAIL_TYPE)
     get_all_templates_for_type(client, SMS_TYPE)
 
-    if (os.environ['INBOUND_SMS_QUERY_KEY']):
-        get_received_text_messages()
+    # Inbound sms functionality not fully tested/supported, so skipping it for now.
+    # if (os.environ['INBOUND_SMS_QUERY_KEY']):
+    #     get_received_text_messages()
 
     print("notify-client-python integration tests are successful")
 
