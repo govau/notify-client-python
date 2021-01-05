@@ -55,7 +55,7 @@ setup(
 
     install_requires=[
         'requests>=2.0.0',
-        'PyJWT>=1.5.1',
+        'PyJWT~=1.5.1',
         'docopt>=0.3.0',
         'monotonic>=0.1',
         'future',
